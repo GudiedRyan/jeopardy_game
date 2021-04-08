@@ -1,11 +1,12 @@
-from flask import Flask, render_template, url_for
-app = Flask(__name__)
+from flask import render_template, Blueprint
 
-@app.route('/')
-@app.route('/home')
+main = Blueprint('main', __name__)
+
+@main.route('/')
+@main.route('/home')
 def home():
     return render_template('home.html', title="Home")
 
-@app.route('/browse_games')
+@main.route('/browse_games')
 def browse_games():
     return render_template('browse_games.html', title="Games")
