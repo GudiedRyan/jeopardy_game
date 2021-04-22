@@ -1,23 +1,37 @@
 {% extends "layout.html" %}
 {% block content %}
-<h2>Register</h2>
+<h2>Make a Game!</h2>
 <div class="content=section">
-    <form method="POST" action="">
+    <form method='POST' action="/create_game">
         {{ form.hidden_tag() }}
         <fieldset class="form-group">
-            <legend>Sign up free today!</legend>
+            <legend>Build your own Jeopardy game! There are 6 categories with 5 questions each.</legend>
             <div class="form-group">
-                {{ form.username.label(class="form-control-label") }}
+                {{ form.category_1.label(class="form-control-label") }}
 
-                {% if form.username.errors %}
-                    {{ form.username(class="form-control form-control-lg is-invalid")}}
+                {% if form.category_1.errors %}
+                    {{ form.category_1(class="form-control form-control-lg is-invalid")}}
                     <div class="invalid-feedback">
-                        {% for error in form.username.errors %}
+                        {% for error in form.category_1.errors %}
                             <span>{{ error }}</span>
                         {% endfor %}
                     </div>
                 {% else %}
-                    {{ form.username(class="form-control form=control-lg") }}
+                    {{ form.category_1(class="form-control form=control-lg") }}
+                {% endif %}
+            </div>
+            <div class="form-group">
+                {{ form.category_2.label(class="form-control-label") }}
+
+                {% if form.category_2.errors %}
+                    {{ form.category_2(class="form-control form-control-lg is-invalid")}}
+                    <div class="invalid-feedback">
+                        {% for error in form.category_2.errors %}
+                            <span>{{ error }}</span>
+                        {% endfor %}
+                    </div>
+                {% else %}
+                    {{ form.category_2(class="form-control form=control-lg") }}
                 {% endif %}
             </div>
             <div class="form-group">
