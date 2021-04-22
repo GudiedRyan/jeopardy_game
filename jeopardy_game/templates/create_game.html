@@ -1,8 +1,8 @@
 {% extends "layout.html" %}
 {% block content %}
 <h2>Make a Game!</h2>
-<div class="content=section">
-    <form method='POST' action="/create_game">
+<div class="content-section">
+    <form method="POST" action="/create_game">
         {{ form.hidden_tag() }}
         <fieldset class="form-group">
             <legend>Build your own Jeopardy game! There are 6 categories with 5 questions each.</legend>
@@ -32,6 +32,20 @@
                     </div>
                 {% else %}
                     {{ form.category_2(class="form-control form=control-lg") }}
+                {% endif %}
+            </div>
+            <div class="form-group">
+                {{ form.category_3.label(class="form-control-label") }}
+
+                {% if form.category_3.errors %}
+                    {{ form.category_3(class="form-control form-control-lg is-invalid")}}
+                    <div class="invalid-feedback">
+                        {% for error in form.category_3.errors %}
+                            <span>{{ error }}</span>
+                        {% endfor %}
+                    </div>
+                {% else %}
+                    {{ form.category_3(class="form-control form=control-lg") }}
                 {% endif %}
             </div>
             <div class="form-group">
