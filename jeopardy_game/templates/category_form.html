@@ -1,9 +1,6 @@
 {% extends "layout.html" %}
 {% block content %}
-<h2>Make a Game!</h2>
-<p>This is where you set the categories. Note that if you want the game to be editable after submitting, you will need to set
-    a password.
-</p>
+<h2>{{ category }}</h2>
 <div class="content-section">
     <form method="POST" action="/create_game">
         {{ form.hidden_tag() }}
